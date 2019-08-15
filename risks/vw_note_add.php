@@ -9,13 +9,14 @@ $risk_id = (int) w2PgetParam($_GET, 'risk_id', 0);
 $note = (int) w2PgetParam($_GET, 'note_id', 0);
 
 // check permissions
+global $m;
 $perms =& $AppUI->acl();
 $canEdit = $perms->checkModuleItem($m, 'edit', $risk_id );
 if (!$canEdit) {
 	$AppUI->redirect("m=public&a=access_denied");
 }
 ?>
-<script language="javascript" type="text/javascript">
+<script  type="text/javascript">
 function submitIt() {
 	var f = document.addeditForm;
 	f.submit();
